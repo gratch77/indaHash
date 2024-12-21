@@ -1,0 +1,46 @@
+.card {
+  background-color: $color-background;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $color-primary;
+    margin-bottom: 8px;
+  }
+
+  &__collection {
+    font-size: 1rem;
+    color: $color-secondary;
+    margin-bottom: 16px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: $color-primary;
+      color: #fff;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($color-primary, 10%);
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+controllers:
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+
+api_cards_list:
+  path: /api/cards
+  controller: App\Controller\CardController::listCards
+  methods: GET
+
+api_cards_create:
+  path: /api/cards
+  controller: App\Controller\CardController::addCard
+  methods: POST
+
+api_cards_get:
+  path: /api/cards/{id}
+  controller: App\Controller\CardController::getCard
+  methods: GET
+
+api_cards_update:
+  path: /api/cards/{id}
+  controller: App\Controller\CardController::updateCard
+  methods: PUT
+
+api_cards_delete:
+  path: /api/cards/{id}
+  controller: App\Controller\CardController::deleteCard
+  methods: DELETE

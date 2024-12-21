@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "809d2fa9-951b-481d-8ebc-34c28822a07c",
+		"name": "NFT Cards API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20203394"
+	},
+	"item": [
+		{
+			"name": "Get All Cards",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "your-secret-api-key",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/cards"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_SECRET}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Sample Card\",\n  \"owner\": \"John Doe\",\n  \"price\": 15.5,\n  \"volume\": 10,\n  \"receivedAt\": \"2023-12-01\",\n  \"collection\": \"Special Collection\",\n  \"influencerName\": \"Jane Doe\",\n  \"imageUrl\": \"https://via.placeholder.com/150\",\n  \"isForSale\": true,\n  \"isForTrade\": false,\n  \"likes\": 100,\n  \"ranking\": 1\n}"
+				},
+				"url": "http://localhost:8000/api/cards"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Card by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "your-secret-api-key",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/cards/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Card by ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_SECRET}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Updated Card Name\",\n  \"price\": 20.5,\n  \"isForSale\": false\n}"
+				},
+				"url": "http://localhost:8000/api/cards/31"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Card by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{API_SECRET}}",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/cards/31"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_SECRET",
+			"value": "indahash",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,6 @@
+framework:
+  validation:
+    enabled: true
+    enable_attributes: true
+    auto_mapping:
+      'App\Entity\': [ ]
