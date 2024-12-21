@@ -8,4 +8,4 @@ const Header: React.FC = () => {
     );
 };
 
-export default Navigation;
+export default Header;

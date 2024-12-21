@@ -6,7 +6,7 @@ const YourDeckPage: React.FC = () => {
     const { cards, loading, error, fetchAllCards, updateCardState, deleteCardState } = useCardsController();
 
     useEffect(() => {
-        fetchAllCards({ sortBy: 'collection' });  // Pobieranie kart, np. sortowanie po kolekcji
+        fetchAllCards({ sortField: 'collection' });
     }, []);
 
     if (loading) return <p>Loading your deck...</p>;
