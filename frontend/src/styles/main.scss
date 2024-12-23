@@ -1,5 +1,5 @@
-@import './base/base';
-@import './layouts/grid';
-@import './components/card';
-@import './components/card-list';
+@use 'base/base';
+@use 'layouts/grid';
+@use 'components/card';
+@use 'components/card-list';
 //@import './pages/cards-page';

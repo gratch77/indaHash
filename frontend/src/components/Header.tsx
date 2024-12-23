@@ -1,7 +1,7 @@
 function Header() {
   return (
     <div>
-      <img src="https://via.placeholder.com/150" alt="Logo" />
+      <h1>Card Collection</h1>
     </div>
   );
 }

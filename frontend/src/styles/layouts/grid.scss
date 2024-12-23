@@ -1,3 +1,6 @@
+@use "../base/mixins";
+@use "../base/variables";
+
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -6,7 +9,7 @@
   &__item {
     grid-column: span 6;
 
-    @include responsive($breakpoint-mobile) {
+    @include mixins.responsive(variables.$breakpoint-mobile) {
       grid-column: span 12;
     }
   }

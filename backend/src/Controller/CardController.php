@@ -15,17 +15,17 @@ class CardController extends AbstractController {
     $this->cardService = $cardService;
   }
 
-  // TODO obsługa błędów i listener do wysłania maila
-
   public function listCards(Request $request): JsonResponse {
     $page = $request->query->getInt('page', 1);
     $limit = $request->query->getInt('limit', 10);
     $sortField = $request->query->get('sortField', null);
     $sortOrder = $request->query->get('sortOrder', 'ASC');
+    $onlyMine = $request->query->get('onlyMine', 'false');
+    $onlyMine = $onlyMine === 'true';
 
-    $cards = $this->cardService->listCards($page, $limit, $sortField, $sortOrder);
+    $cardsData = $this->cardService->listCards($page, $limit, $sortField, $sortOrder, $onlyMine);
 
-    return $this->json($cards);
+    return $this->json($cardsData);
   }
 
   public function addCard(Request $request): JsonResponse {

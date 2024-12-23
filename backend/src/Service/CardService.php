@@ -27,8 +27,23 @@ class CardService {
   /**
    * List cards with optional sorting and pagination.
    */
-  public function listCards(int $page, int $limit, ?string $sortField = null, string $sortOrder = 'ASC'): array {
-    return $this->cardRepository->findCards($page, $limit, $sortField, $sortOrder);
+  public function listCards(int $page, int $limit, ?string $sortField = null, string $sortOrder = 'ASC', bool $onlyMine = false): array {
+    if ($onlyMine) {
+      $owner = 'Owner 1';
+      $counter = $this->cardRepository->count([
+        'owner' => $owner
+      ]);
+    }
+    else {
+      $owner = null;
+      $counter = $this->cardRepository->count([]);
+    }
+    $cards = $this->cardRepository->findCards($page, $limit, $sortField, $sortOrder, $owner);
+    
+    return [
+      'total' => $counter,
+      'data' => $cards,
+    ];
   }
 
   /**
@@ -81,23 +96,20 @@ class CardService {
     return $this->cardRepository->find($id);
   }
 
+  public function countCards(): int {
+    return $this->cardRepository->count([]);
+  }
+
   /**
    * Update card details.
    */
   public function updateCard(Card $card, array $data): Card {
-    if (isset($data['name'])) {
-      $card->setName($data['name']);
+    if (isset($data['forSale'])) {
+      $card->setForSale($data['forSale']);
     }
-    if (isset($data['price'])) {
-      $card->setPrice($data['price']);
+    if (isset($data['forTrade'])) {
+      $card->setForTrade($data['forTrade']);
     }
-    if (isset($data['isForSale'])) {
-      $card->setForSale($data['isForSale']);
-    }
-    if (isset($data['isForTrade'])) {
-      $card->setForTrade($data['isForTrade']);
-    }
-// Add other fields as necessary...
 
     $this->cardRepository->save($card);
 

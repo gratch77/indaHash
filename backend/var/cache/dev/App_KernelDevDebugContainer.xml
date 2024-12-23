@@ -205,6 +205,7 @@
       <parameter key="allow_headers" type="collection">
         <parameter>content-type</parameter>
         <parameter>authorization</parameter>
+        <parameter>x-api-key</parameter>
       </parameter>
       <parameter key="allow_private_network">false</parameter>
       <parameter key="expose_headers" type="collection"/>

@@ -1,24 +1,33 @@
-import { Card as CardType } from '../api/types';
+import Popup from 'reactjs-popup';
+import CardContextMenu from './CardContextMenu';
+import useCardsStore from '../store/cardsStore';
 
-interface Props {
-  card: CardType;
-  onUpdate: (id: number, payload: Partial<CardType>) => void;
-  onDelete: (id: number) => void;
-}
+function Card({ cardId }:{ cardId:number }) {
+  const card = useCardsStore((state) => state.cards.find((c) => c.id === cardId));
 
-function Card({ card, onUpdate, onDelete }:Props) {
   return (
-    <div className="card">
-      <img src={card.imageUrl} alt={card.name} />
-      <h3>{card.name}</h3>
-      <p>
-        Collection:
-        {card.collection}
-      </p>
-      <button type="button" onClick={() => onUpdate(card.id, { forSale: !card.forSale })}>
-        {card.forSale ? 'Remove from Sale' : 'Mark for Sale'}
-      </button>
-      <button type="button" onClick={() => onDelete(card.id)}>Delete</button>
+    <div className="Card">
+      <div className="Card-Content">
+        <div className="Card-Header" />
+        <img className="Card-Image" src={card.imageUrl} alt={card.name} />
+        <h3>{card.name}</h3>
+        <div className="Card-Collection">{card.collection}</div>
+        <div className="Card-Likes">{card.likes}</div>
+        <div className="Card-Ranking">{card.ranking}</div>
+        <div className="Card-Influencer">{card.influencerName}</div>
+      </div>
+      <Popup
+        trigger={<button type="button" className="Card-MenuTrigger">MENU</button>}
+        on="click"
+        position="right center"
+        closeOnDocumentClick
+        mouseEnterDelay={0}
+        mouseLeaveDelay={300}
+        contentStyle={{ padding: '0px', border: 'none' }}
+        arrow={false}
+      >
+        <CardContextMenu cardId={card.id} />
+      </Popup>
     </div>
   );
 }

@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'mixins';
-@import 'functions';
+@use 'variables';
+@use 'mixins';
+@use 'functions';
 
 /* Reset */
 *,
@@ -12,9 +12,9 @@
 }
 
 body {
-  font-family: $font-primary, sans-serif;
-  background-color: $color-background;
-  color: $color-text;
+  font-family: variables.$font-primary, sans-serif;
+  background-color: variables.$color-background;
+  color: variables.$color-text;
   line-height: 1.5;
 }
 

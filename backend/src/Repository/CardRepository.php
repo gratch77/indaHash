@@ -43,11 +43,16 @@ class CardRepository extends ServiceEntityRepository {
    * @param string $sortOrder Order direction ('ASC' or 'DESC')
    * @return array
    */
-  public function findCards(int $page = 1, int $limit = 10, ?string $sortField = null, string $sortOrder = 'ASC'): array {
+  public function findCards(int $page = 1, int $limit = 10, ?string $sortField = null, string $sortOrder = 'ASC', string $owner = null): array {
     $qb = $this->createQueryBuilder('c');
 
     if ($sortField) {
       $qb->orderBy('c.' . $sortField, $sortOrder);
+    }
+
+    if (!empty($owner)) {
+      $qb->andWhere('c.owner = :owner')
+        ->setParameter('owner', $owner);
     }
 
     $qb->setFirstResult(($page - 1) * $limit)
@@ -55,6 +60,18 @@ class CardRepository extends ServiceEntityRepository {
 
     return $qb->getQuery()->getResult();
   }
+
+//  public function count(array $criteria = []): int {
+//    $qb = $this->createQueryBuilder('c')
+//      ->select('COUNT(c.id)');
+//
+//    foreach ($criteria as $field => $value) {
+//      $qb->andWhere("c.$field = :$field")
+//        ->setParameter($field, $value);
+//    }
+//
+//    return $qb->getQuery()->getSingleScalarResult();
+//  }
 
   /**
    * Find cards by collection name.
@@ -81,32 +98,4 @@ class CardRepository extends ServiceEntityRepository {
       ->getQuery()
       ->getResult();
   }
-
-
-
-
-  //    /**
-  //     * @return Card[] Returns an array of Card objects
-  //     */
-  //    public function findByExampleField($value): array
-  //    {
-  //        return $this->createQueryBuilder('c')
-  //            ->andWhere('c.exampleField = :val')
-  //            ->setParameter('val', $value)
-  //            ->orderBy('c.id', 'ASC')
-  //            ->setMaxResults(10)
-  //            ->getQuery()
-  //            ->getResult()
-  //        ;
-  //    }
-
-  //    public function findOneBySomeField($value): ?Card
-  //    {
-  //        return $this->createQueryBuilder('c')
-  //            ->andWhere('c.exampleField = :val')
-  //            ->setParameter('val', $value)
-  //            ->getQuery()
-  //            ->getOneOrNullResult()
-  //        ;
-  //    }
 }
