@@ -27,6 +27,8 @@ interface CardsState {
   updateForTrade: (id: number, forTrade: boolean) => void;
 }
 
+let fetchCardsAbortController:AbortController | null = null;
+
 const useCardsStore = create<CardsState>((set, get) => ({
   cards: [],
   totalCards: 0,
@@ -37,36 +39,67 @@ const useCardsStore = create<CardsState>((set, get) => ({
   loading: false,
   error: null,
 
+  // fetchCards: async () => {
+  //   set({ loading: true, error: null });
+  //   try {
+  //     const {
+  //       page, limit, sort, onlyMine,
+  //     } = get();
+  //     const response = await apiFetchCards(
+  //       {
+  //         page, limit, sortField: sort.field, sortOrder: sort.order, onlyMine,
+  //       },
+  //     );
+  //     set({ cards: response.data, totalCards: response.total, loading: false });
+  //     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //   } catch (error) {
+  //     set({ error: 'Failed to fetch cards', loading: false });
+  //   }
+  // },
   fetchCards: async () => {
     set({ loading: true, error: null });
     try {
       const {
         page, limit, sort, onlyMine,
       } = get();
+
+      if (fetchCardsAbortController) {
+        fetchCardsAbortController.abort();
+      }
+      fetchCardsAbortController = new AbortController();
+
       const response = await apiFetchCards(
         {
           page, limit, sortField: sort.field, sortOrder: sort.order, onlyMine,
         },
+        fetchCardsAbortController.signal,
       );
+
+      fetchCardsAbortController = null;
       set({ cards: response.data, totalCards: response.total, loading: false });
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      set({ error: 'Failed to fetch cards', loading: false });
+      if (error.code !== 'ERR_CANCELED') {
+        set({ error: 'Failed to fetch cards', loading: false });
+      }
     }
   },
 
   setSort: (sort) => {
     set({ sort });
+    set({ page: 1 });
   },
 
   setPage: (page) => {
     set({ page });
-    const { fetchCards } = get();
-    fetchCards();
   },
 
   setOnlyMine: (onlyMine) => {
     set({ onlyMine });
+  },
+
+  resetCards: () => {
+    set({ page: 1, totalCards: 0, cards: [{}, {}, {}, {}] });
   },
 
   addCard: (newCard) => {

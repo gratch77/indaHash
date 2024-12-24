@@ -1,0 +1,38 @@
+.SortableCardList {
+  &-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 2rem 0;
+  }
+
+  &-Total {
+    font-size: 0.9rem;
+
+    .label {
+      font-weight: 400;
+      color: #AAA9A8;
+    }
+
+    .value {
+      font-weight: 600;
+    }
+  }
+
+  &-Sorter {
+    label {
+      font-size: 0.9rem;
+    }
+
+    select {
+      margin-left: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid #AAA9A8;
+      border-radius: 0.25rem;
+      font-size: 14px;
+      color: #2A2825;
+      background-color: #fff;
+    }
+  }
+}

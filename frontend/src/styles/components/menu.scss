@@ -1,0 +1,39 @@
+@use "../base/variables";
+
+.Menu {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid variables.$color-border;
+
+  &-Tab {
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    filter: grayscale(100%) brightness(1.5);
+
+    &:hover {
+      border-bottom: 3px solid variables.$color-primary;
+      filter: none;
+    }
+
+    &_active {
+      color: #333;
+      font-weight: 600;
+      border-bottom: 3px solid variables.$color-primary;
+      filter: none;
+    }
+  }
+
+  &-Icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+
+  &-Link {
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+}

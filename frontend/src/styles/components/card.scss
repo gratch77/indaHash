@@ -3,48 +3,153 @@
 @use 'sass:color';
 
 .Card {
-  background-color: variables.$color-background;
-  border: 1px solid variables.$color-border;
-  border-radius: 8px;
-  padding: 16px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 280px;
+  height: 500px;
+
+  &-Content {
+    position: relative;
+    z-index: 2;
+    transform: translateY(-20px);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    background: url("/src/assets/images/holo-back.jpg") no-repeat center center;
+    background-size: cover;
+    width: 240px;
+    height: 420px;
+    margin: 0 auto;
+  }
+
+  &-Back {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    border: 1px solid variables.$color-border;
+    border-radius: 8px;
+    width: 280px;
+    height: 465px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  &-Header {
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: initial;
+    padding: 8px;
+  }
+
+  &-HoloStar {
+    height: 32px;
+    width: auto;
+    vertical-align: middle;
+  }
+
+  &-PriceVolume {
+    height: 32px;
+    vertical-align: middle;
+    margin: 5px 0 0 10px;
+    font-size: 14px;
+    color: variables.$color-violet-dark;
+    font-weight: 500;
+  }
+
+  &-PriceVolumeSeparator {
+    color: variables.$color-violet-bright;
+  }
 
   &-Image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 12px;
+    width: 240px;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  &-Description {
+    padding: 15px;
   }
 
   &-Title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: variables.$color-primary;
-    margin-bottom: 8px;
+    color: variables.$color-violet-dark;
+    font-weight: 600;
+    font-size: 15px;
   }
 
   &-Collection {
-    font-size: 1rem;
-    color: variables.$color-secondary;
-    margin-bottom: 16px;
+    margin-top: 2px;
+    color: variables.$color-violet-bright;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 
-  &-Buttons {
+  &-SocialResults {
+    margin-top: 10px;
     display: flex;
-    justify-content: space-between;
+    position: relative;
+    height: 50px;
 
-    button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 4px;
-      background-color: variables.$color-primary;
-      color: #fff;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: color.adjust(variables.$color-primary, $lightness: -10%);
-      }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 200px;
+      height: 20px;  /* Grubość dolnego obramowania */
+      background: url('/src/assets/images/dotted-separator.png') repeat-x;
+      background-size: contain;
     }
+  }
+
+  &-Likes {
+    display: flex;
+    gap: 8px;
+    color: #F69BC8;
+    font-size: 14px;
+    font-weight: 600;
+    width: 50%;
+
+    img {
+      height: 18px;
+      width: auto;
+      vertical-align: middle;
+    }
+  }
+
+  &-Rating {
+    display: flex;
+    gap: 8px;
+    color: #9295DC;
+    font-size: 14px;
+    font-weight: 600;
+
+    img {
+      height: 18px;
+      width: auto;
+      vertical-align: middle;
+    }
+  }
+
+  &-Influencer {
+    color: variables.$color-violet-dark;
+    font-size: 10px;
+    font-weight: 600;
+    span {
+      color: variables.$color-violet-bright;
+    }
+  }
+
+  &-MenuTrigger {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    z-index: 3;
+    cursor: pointer;
+    padding: 8px;
   }
 }

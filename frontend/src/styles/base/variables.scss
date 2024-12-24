@@ -1,12 +1,17 @@
 // Colors
-$color-primary: #4caf50;
+$color-primary: #F682D1;
 $color-secondary: #ff9800;
-$color-background: #f9f9f9;
+$color-background: #fff;
 $color-text: #333;
-$color-border: #ddd;
+$color-border: #EAEAE9;
+$color-violet-dark: #6C71E0;
+$color-violet-bright: #B7BBFF;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, #F682D1, #FB817B);
 
 // Typography
-$font-primary: 'Roboto', sans-serif;
+$font-primary: 'Montserrat', 'Roboto', sans-serif;
 $font-size-base: 16px;
 
 // Breakpoints

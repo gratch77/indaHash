@@ -11,18 +11,25 @@ function CardContextMenu({ cardId }:{ cardId:number }) {
     <div className="CardContextMenu">
       <div className="CardContextMenu-MenuItem">Send</div>
       <div className="CardContextMenu-MenuItem">
-        On swap
+        <div>On swap</div>
         <CustomSwitch id={card.id} updateHandler={updateForTrade} initialValue={card.forTrade} />
       </div>
       <div className="CardContextMenu-MenuItem">
-        On sale
+        <div>On sale</div>
         <CustomSwitch id={card.id} updateHandler={updateForSale} initialValue={card.forSale} />
       </div>
       <div className="CardContextMenu-MenuItem">
         <Popup
-          trigger={<button type="button" className="CardContextMenu-PopupTrigger">Share</button>}
+          trigger={(
+            <div className="CardContextMenu-SubmenuTrigger">
+              <div>Share</div>
+              <div className="popup-arrow">&rsaquo;</div>
+            </div>
+          )}
           on="hover"
-          position="right center"
+          position="right bottom"
+          offsetX={8}
+          offsetY={10}
           closeOnDocumentClick
           mouseEnterDelay={0}
           mouseLeaveDelay={300}

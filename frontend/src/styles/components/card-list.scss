@@ -1,5 +1,57 @@
 .CardList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  min-height: 200px;
+
+  &-List {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &-Empty {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #666;
+    margin-top: 50px;
+  }
+
+  &-Pagination {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  &-PaginationPrev,
+  &-PaginationNext {
+    width: 100px;
+    height: 60px;
+    border: none;
+    background: url('/src/assets/icons/arrow-left.svg') no-repeat center;
+    background-size: cover;
+    color: transparent;
+    font-size: 18px;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+
+    &_disabled {
+      cursor: not-allowed;
+      filter: grayscale(1) brightness(1.5);
+
+      &:hover {
+        filter: grayscale(1) brightness(1.5);
+      }
+    }
+  }
+
+  &-PaginationPrev {
+    background: url('/src/assets/icons/arrow-left.svg') no-repeat center;
+  }
+
+  &-PaginationNext {
+    background: url('/src/assets/icons/arrow-right.svg') no-repeat center;
+  }
 }

@@ -9,19 +9,21 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Header />
       <Router>
-        <Menu />
-        <Routes>
-          <Route path="/" element={<CardsPage />} />
-          <Route path="/packs" element={<PacksPage />} />
-          <Route path="/your-deck" element={<YourDeckPage />} />
-          <Route path="/add-card" element={<AddCardPage />} />
-        </Routes>
+        <div className="App-Content">
+          <Menu />
+          <Routes>
+            <Route path="/" element={<CardsPage />} />
+            <Route path="/packs" element={<PacksPage />} />
+            <Route path="/your-deck" element={<YourDeckPage />} />
+            <Route path="/add-card" element={<AddCardPage />} />
+          </Routes>
+        </div>
       </Router>
       <Footer />
-    </>
+    </div>
   );
 }
 

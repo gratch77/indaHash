@@ -1,14 +1,23 @@
 import Switch from 'react-custom-checkbox/switch';
 import { CSSProperties, useState } from 'react';
 
-const checkedTrackStyle = {
-  opacity: 1,
-  transition: 'all 0.25s ease-in-out',
+const checkedTrackStyle:CSSProperties = {
+  width: 48,
+  height: 24,
+  background: 'linear-gradient(180deg, #F682D1 0%, #FB817B 100%)',
+  borderRadius: 12,
+  border: 'none',
+  flex: 'none',
+  order: 0,
+  flexGrow: 0,
+  transition: 'all 0.5s ease-in-out',
+  cursor: 'pointer',
 };
 
 const checkedIndicatorStyle = {
-  background: '#44aa44',
-  transform: 'translateX(30px)',
+  background: '#fff',
+  transform: 'translateX(23px)',
+  bottom: 6,
 };
 
 const checkedIconStyle = {
@@ -18,29 +27,30 @@ const checkedIconStyle = {
 
 const indicatorStyle:CSSProperties = {
   alignItems: 'center',
-  background: '#f34334',
+  background: '#D4D4D3',
   borderRadius: 24,
-  bottom: 2,
+  bottom: 5,
   display: 'flex',
-  height: 24,
+  height: 12,
   justifyContent: 'center',
-  left: 2,
+  left: 7,
   outline: 'solid 2px transparent',
   position: 'absolute',
   transition: '0.25s',
-  width: 24,
+  width: 12,
+  cursor: 'pointer',
 };
 
 const trackStyle:CSSProperties = {
-  background: '#e5efe9',
-  border: '1px solid #e6e6e6',
+  border: '1px solid #D4D4D3',
+  background: '#fff',
   borderRadius: 15,
-  cursor: 'pointer',
   display: 'flex',
-  height: 28,
+  height: 24,
   marginRight: 12,
   position: 'relative',
-  width: 60,
+  width: 48,
+  ursor: 'pointer',
 };
 
 interface Props {
@@ -60,6 +70,7 @@ function CustomSwitch({ id, updateHandler, initialValue }: Props) {
 
   return (
     <Switch
+      className="CustomSwitch"
       checked={switchValue}
       onChange={handleChange}
       indicatorStyle={indicatorStyle}

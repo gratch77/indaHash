@@ -1,7 +1,9 @@
+import logo from '../assets/images/logo.png';
+
 function Header() {
   return (
-    <div>
-      <h1>Card Collection</h1>
+    <div className="Header">
+      <img className="Header-Logo" src={logo} alt="logo" />
     </div>
   );
 }

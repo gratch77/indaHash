@@ -1,0 +1,11 @@
+@use "../base/variables";
+
+.Header {
+  border-bottom: 1px solid variables.$color-border;
+  padding: 20px 0 10px 40px;
+
+  &-Logo {
+    height: 65px;
+    width: auto;
+  }
+}

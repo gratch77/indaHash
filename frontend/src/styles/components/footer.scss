@@ -1,0 +1,34 @@
+@use "../base/variables";
+
+.Footer {
+  border-top: 1px solid variables.$color-border;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding: 40px 40px 0;
+
+  &-Copy {
+    height: 50px;
+    width: auto;
+    display: flex;
+  }
+
+  &-Navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    color: #AAA9A8;
+    font-size: 12px;
+  }
+
+  &-Social {
+    text-align: right;
+    img {
+      height: 20px;
+      width: auto;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { GenericAbortSignal } from 'axios';
 import { CardType } from './types';
 import apiClient from './apiClient';
 
@@ -9,8 +10,9 @@ export const apiFetchCards = async (
     sortOrder?: string;
     onlyMine?: boolean
   },
+  signal: GenericAbortSignal,
 ) => {
-  const response = await apiClient.get('/cards', { params });
+  const response = await apiClient.get('/cards', { params, signal });
   return response.data; // { data: Card[], totalCount: number }
 };
 

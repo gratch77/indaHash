@@ -1,0 +1,65 @@
+.CardContextMenu {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 6px 10px 16px;
+  gap: 8px;
+  width: 162px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  font-size: 12px;
+  font-weight: 500;
+
+  &-MenuItem {
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &-SubmenuTrigger {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+
+    .popup-arrow {
+      font-size: 20px;
+      margin-right: 16px;
+      margin-top: -7px;
+    }
+
+    &:hover .popup-arrow {
+      color: #ff9800;
+    }
+  }
+
+  &-Submenu {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 6px 10px 16px;
+    gap: 8px;
+    width: 162px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  &-SubmenuMenuItem {
+    cursor: pointer;
+  }
+}
