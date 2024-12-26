@@ -50,7 +50,7 @@ const trackStyle:CSSProperties = {
   marginRight: 12,
   position: 'relative',
   width: 48,
-  ursor: 'pointer',
+  cursor: 'pointer',
 };
 
 interface Props {

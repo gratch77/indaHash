@@ -10,10 +10,3 @@ export interface CardType {
   ranking: number;
   influencerName: string;
 }
-
-export interface FetchParams {
-  page?: number;
-  limit?: number;
-  sortField?: string;
-  sortOrder?: string;
-}

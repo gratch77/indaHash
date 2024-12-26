@@ -19,12 +19,13 @@ function Menu() {
     <nav className="Menu">
       {menuLinks.map((link) => (
         <div key={link.title} className={`Menu-Tab ${activeTab === link.path ? 'Menu-Tab_active' : ''}`}>
-          <img className="Menu-Icon" src={link.icon} alt={`${link.title} icon`} />
           <Link
             className="Menu-Link"
             to={link.path}
             onClick={() => setActiveTab(link.path)}
           >
+            <img className="Menu-Icon" src={link.icon} alt={`${link.title} icon`} />
+            {' '}
             {link.title.toUpperCase()}
           </Link>
         </div>

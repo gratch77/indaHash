@@ -6,7 +6,6 @@
   border-bottom: 1px solid variables.$color-border;
 
   &-Tab {
-    padding: 12px 24px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
@@ -33,6 +32,8 @@
   }
 
   &-Link {
+    display: block;
+    padding: 12px 24px;
     margin-left: 5px;
     vertical-align: middle;
   }

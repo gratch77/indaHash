@@ -7,7 +7,7 @@ backend/.env.*.local
 backend/config/secrets/prod/prod.decrypt.private.php
 backend/public/bundles/
 backend/vendor/
-backend/var/*
+backend/var/
 ### /BACKEND ###
 
 ### FRONTEND ###

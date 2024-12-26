@@ -31,7 +31,7 @@ let fetchCardsAbortController:AbortController | null = null;
 
 const useCardsStore = create<CardsState>((set, get) => ({
   cards: [],
-  totalCards: 0,
+  totalCards: '?',
   limit: 4,
   page: 1,
   sort: { field: 'receivedAt', order: 'desc' },
@@ -39,23 +39,6 @@ const useCardsStore = create<CardsState>((set, get) => ({
   loading: false,
   error: null,
 
-  // fetchCards: async () => {
-  //   set({ loading: true, error: null });
-  //   try {
-  //     const {
-  //       page, limit, sort, onlyMine,
-  //     } = get();
-  //     const response = await apiFetchCards(
-  //       {
-  //         page, limit, sortField: sort.field, sortOrder: sort.order, onlyMine,
-  //       },
-  //     );
-  //     set({ cards: response.data, totalCards: response.total, loading: false });
-  //     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  //   } catch (error) {
-  //     set({ error: 'Failed to fetch cards', loading: false });
-  //   }
-  // },
   fetchCards: async () => {
     set({ loading: true, error: null });
     try {
@@ -77,7 +60,6 @@ const useCardsStore = create<CardsState>((set, get) => ({
 
       fetchCardsAbortController = null;
       set({ cards: response.data, totalCards: response.total, loading: false });
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       if (error.code !== 'ERR_CANCELED') {
         set({ error: 'Failed to fetch cards', loading: false });
@@ -99,7 +81,7 @@ const useCardsStore = create<CardsState>((set, get) => ({
   },
 
   resetCards: () => {
-    set({ page: 1, totalCards: 0, cards: [{}, {}, {}, {}] });
+    set({ page: 1, totalCards: '?', cards: [{}, {}, {}, {}] });
   },
 
   addCard: (newCard) => {

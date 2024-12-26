@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Card from './Card';
 import useCardsStore from '../store/cardsStore';
 
@@ -31,16 +31,18 @@ function CardList() {
   }
 
   const totalPages = Math.ceil(totalCards / pageSize);
+  const hasNextPage = page < totalPages;
+  const hasPrevPage = page > 1;
 
   const handleNextPage = () => {
-    if (page < totalPages) {
+    if (hasNextPage) {
       setPage(page + 1);
       fetchCards();
     }
   };
 
   const handlePrevPage = () => {
-    if (page > 1) {
+    if (hasPrevPage) {
       setPage(page - 1);
       fetchCards();
     }
@@ -57,14 +59,14 @@ function CardList() {
       </div>
       <div className="CardList-Pagination">
         <button
-          className={`CardList-PaginationPrev ${page === 1 ? 'CardList-PaginationPrev_disabled' : ''}`}
+          className={`CardList-PaginationPrev ${hasPrevPage ? '' : 'CardList-PaginationPrev_disabled'}`}
           type="button"
           onClick={handlePrevPage}
         >
           Previous
         </button>
         <button
-          className={`CardList-PaginationNext ${page === totalPages ? 'CardList-PaginationNext_disabled' : ''}`}
+          className={`CardList-PaginationNext ${hasNextPage ? '' : 'CardList-PaginationNext_disabled'}`}
           type="button"
           onClick={handleNextPage}
         >

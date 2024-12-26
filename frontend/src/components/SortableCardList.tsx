@@ -12,7 +12,6 @@ function SortableCardList({ onlyMine = false } : {onlyMine: boolean}) {
   const fetchCards = useCardsStore((state) => state.fetchCards);
   const totalCards = useCardsStore((state) => state.totalCards);
   const setOnlyMine = useCardsStore((state) => state.setOnlyMine);
-  const loading = useCardsStore((state) => state.loading);
 
   useEffect(() => {
     setOnlyMine(onlyMine);

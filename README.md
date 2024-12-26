@@ -1,5 +1,9 @@
 ﻿# indaStars
 
+Projekt przygotowany na potrzeby rekrutacji do firmy indaHash.
+
+Krótkie demo projektu: https://youtu.be/jZm7ogRKjS8
+
 ## Instalacja
 Aby poprawnie uruchomić projekt, należy mieć zainstalowany Docker.
 Następnie należy wykonać następujące polecenia:
@@ -58,11 +62,11 @@ paginacja pomiędzy stronami.
 ### Stylowanie
 Zgodnie z wytycznymi, stylowanie zostało wykonane z wykorzystaniem technologii
 Sass oraz zgodnie z metodologią BEM. Przy czym nie jest to najbardziej typowa
-składnia BEM, a składnie dostosowana do Reakta, wg wytycznych na stronie
+składnia BEM, a składnia dostosowana do Reakta, wg wytycznych na stronie
 https://en.bem.info/methodology/naming-convention/#react-style
 
 ### Składnia
-Składnie po stronie frontu została napisana pod nadzorem ESLinta z konfiguracją Airbnb.
+Składnia po stronie frontu została napisana pod nadzorem ESLinta z konfiguracją Airbnb.
 
 ### Co zostało do zrobienia
 Generalnie projekt jest w miarę funkcjonalny, ale jeszcze kilka elementów należałoby

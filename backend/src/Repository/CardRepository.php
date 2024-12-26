@@ -61,18 +61,6 @@ class CardRepository extends ServiceEntityRepository {
     return $qb->getQuery()->getResult();
   }
 
-//  public function count(array $criteria = []): int {
-//    $qb = $this->createQueryBuilder('c')
-//      ->select('COUNT(c.id)');
-//
-//    foreach ($criteria as $field => $value) {
-//      $qb->andWhere("c.$field = :$field")
-//        ->setParameter($field, $value);
-//    }
-//
-//    return $qb->getQuery()->getSingleScalarResult();
-//  }
-
   /**
    * Find cards by collection name.
    *
